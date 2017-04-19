@@ -1,0 +1,19 @@
+$yellow: #FFFFB2;
+$blue: #B3B3FF;
+$border: 2px dashed black;
+
+
+@mixin flex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.bordered {
+	border: $border;
+}
+
+#stickItHere{
+	@include flex;
+}
+ @import "card";

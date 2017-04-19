@@ -1,0 +1,31 @@
+.img {
+	height: 300px;
+}
+/*
+.card {
+	width: 45%;
+	display: inline-block;
+	height: 650px;
+	text-align: center;
+}*/
+
+#stickItHere {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.card {
+	text-align: center;
+	width: 45%;
+	height: 600px;
+	margin: 10px;
+}
+
+.card:nth-child(even){
+	background-color: #FFFFB2;
+}
+
+.card:nth-child(odd){
+	background-color: #B3B3FF;
+}
