@@ -1,21 +1,24 @@
-.bordered {
-  border: 2px dashed black; }
-
 #stickItHere {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
 
-.card {
+.bordered {
+  border: 2px dashed black; }
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   text-align: center;
   width: 45%;
   height: 600px;
   margin: 10px; }
 
-.card:nth-child(even) {
+.flex:nth-child(even) {
   background-color: #FFFFB2; }
 
-.card:nth-child(odd) {
+.flex:nth-child(odd) {
   background-color: #B3B3FF; }
 
 /*# sourceMappingURL=main.css.map */

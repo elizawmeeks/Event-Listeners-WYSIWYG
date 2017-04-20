@@ -49,26 +49,125 @@ console.log(famous);
 var output = document.getElementById("stickItHere");
 
 famous.forEach(function(person, index){
-	var personCard = `<person class="card">
+	// Adding Cards to Dom
+  var personCard = `<person class="card">
   						<header>
   							<h1 id="name--${index}">${person.name}</h1>
   							<h2 id="title--${index}">${person.title}</h2>
   						</header>
   						<section>
   							<p><img id="image--${index}" src="${person.image}" alt="Picture of an art piece by ${person.name}"</p>
-  							<p id="bio--${index}">${person.bio}</p>
+  							<p class="changeBio" id="bio--${index}">${person.bio}</p>
   						</section>
   						<footer>
   							<p id="birth--${index}">Birth: ${person.lifespan.birth}</p>
   							<p id="death--${index}">Death: ${person.lifespan.death}</p>
   						</footer>
 					  </person>`;
-	output.innerHTML += personCard;
+  var quoteDiv = document.createElement("div");
+  quoteDiv.innerHTML = personCard;
+  output.appendChild(quoteDiv);
+    // Adding class to divs to style cards
+  var addClass = document.getElementsByTagName("div");
+  for (var y = 0; y < addClass.length; y++){
+    addClass.item(y).classList.add("flex");
+  }
+  // Name Event Listeners
+    // variables for Event Listeners
+  var name = document.getElementById(`name--${index}`);
+  var title = document.getElementById(`title--${index}`);
+  var image = document.getElementById(`image--${index}`);
+  var bio = document.getElementById(`bio--${index}`);
+  var birth = document.getElementById(`birth--${index}`);
+  var death = document.getElementById(`death--${index}`);
+  var textBox = document.getElementById("textBox");
+
+    // Now for the event listeners themselves. When clicked they toggle the borders of the elemnts, put focus on the input box, and allow the input value to replace the text of the bio.
+  name.addEventListener("click", function (event){
+    event.target.classList.toggle("bordered");
+    textBox.focus();
+    var currentTarget = event.target.closest("div > person").querySelector('p[class="changeBio"]');
+    console.log("currentTarget", currentTarget);
+    textBox.addEventListener("keyup", function(event){
+      currentTarget.innerHTML = event.target.value;
+      var x = event.key;
+      if (x === "Enter"){
+        currentTarget.innerHTML = "";
+        event.target.value = "";
+      }
+    });
+  });
+
+  title.addEventListener("click", function (event){
+    event.target.classList.toggle("bordered");
+    textBox.focus();
+    textBox.addEventListener("keyup", function(event){
+      bio.innerHTML = event.target.value;
+      var x = event.key;
+      if (x === "Enter"){
+        bio.innerHTML = "";
+        event.target.value = "";
+      }
+    });
+  });
+
+  image.addEventListener("click", function (event){
+    event.target.classList.toggle("bordered");
+    textBox.focus();
+    textBox.addEventListener("keyup", function(event){
+      bio.innerHTML = event.target.value;
+      var x = event.key;
+      if (x === "Enter"){
+        bio.innerHTML = "";
+        event.target.value = "";
+      }
+    });
+  });
+
+  bio.addEventListener("click", function (event){
+    event.target.classList.toggle("bordered");
+    textBox.focus();
+    textBox.addEventListener("keyup", function(event){
+      bio.innerHTML = event.target.value;
+      var x = event.key;
+      if (x === "Enter"){
+        bio.innerHTML = "";
+        event.target.value = "";
+      }
+    });
+  });
+
+  birth.addEventListener("click", function (event){
+    event.target.classList.toggle("bordered");
+    textBox.focus();
+    textBox.addEventListener("keyup", function(event){
+      bio.innerHTML = event.target.value;
+      var x = event.key;
+      if (x === "Enter"){
+        bio.innerHTML = "";
+        event.target.value = "";
+      }
+    });
+  });
+
+  death.addEventListener("click", function (event){
+    event.target.classList.toggle("bordered");
+    textBox.focus();
+    textBox.addEventListener("keyup", function(event){
+      bio.innerHTML = event.target.value;
+      var x = event.key;
+      if (x === "Enter"){
+        bio.innerHTML = "";
+        event.target.value = "";
+      }
+    });
+  });
+
 });
 
 
 
-// Did a for loop, then I wanted to practice the for each loops. This loop works, fwiw.
+// Did a 'for' loop, then I wanted to practice the 'for each' loops. This loop worked, fwiw.
 // for (i = 0; i < famous.length; i++){
 // 	var personCard = `<person class="card">
 //   					<header>
