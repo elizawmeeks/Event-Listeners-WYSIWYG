@@ -72,6 +72,7 @@ famous.forEach(function(person, index){
   for (var y = 0; y < addClass.length; y++){
     addClass.item(y).classList.add("flex");
   }
+
   // Name Event Listeners
     // variables for Event Listeners
   var name = document.getElementById(`name--${index}`);
@@ -83,7 +84,8 @@ famous.forEach(function(person, index){
   var textBox = document.getElementById("textBox");
 
     // Now for the event listeners themselves. When clicked they toggle the borders of the elemnts, put focus on the input box, and allow the input value to replace the text of the bio.
-  name.addEventListener("click", function (event){
+
+  function borderInput (event){
     event.target.classList.toggle("bordered");
     textBox.focus();
     var currentTarget = event.target.closest("div > person").querySelector('p[class="changeBio"]');
@@ -96,72 +98,19 @@ famous.forEach(function(person, index){
         event.target.value = "";
       }
     });
-  });
+  }
 
-  title.addEventListener("click", function (event){
-    event.target.classList.toggle("bordered");
-    textBox.focus();
-    textBox.addEventListener("keyup", function(event){
-      bio.innerHTML = event.target.value;
-      var x = event.key;
-      if (x === "Enter"){
-        bio.innerHTML = "";
-        event.target.value = "";
-      }
-    });
-  });
+  name.addEventListener("click", borderInput);
 
-  image.addEventListener("click", function (event){
-    event.target.classList.toggle("bordered");
-    textBox.focus();
-    textBox.addEventListener("keyup", function(event){
-      bio.innerHTML = event.target.value;
-      var x = event.key;
-      if (x === "Enter"){
-        bio.innerHTML = "";
-        event.target.value = "";
-      }
-    });
-  });
+  title.addEventListener("click", borderInput);
 
-  bio.addEventListener("click", function (event){
-    event.target.classList.toggle("bordered");
-    textBox.focus();
-    textBox.addEventListener("keyup", function(event){
-      bio.innerHTML = event.target.value;
-      var x = event.key;
-      if (x === "Enter"){
-        bio.innerHTML = "";
-        event.target.value = "";
-      }
-    });
-  });
+  image.addEventListener("click", borderInput);
 
-  birth.addEventListener("click", function (event){
-    event.target.classList.toggle("bordered");
-    textBox.focus();
-    textBox.addEventListener("keyup", function(event){
-      bio.innerHTML = event.target.value;
-      var x = event.key;
-      if (x === "Enter"){
-        bio.innerHTML = "";
-        event.target.value = "";
-      }
-    });
-  });
+  bio.addEventListener("click", borderInput);
 
-  death.addEventListener("click", function (event){
-    event.target.classList.toggle("bordered");
-    textBox.focus();
-    textBox.addEventListener("keyup", function(event){
-      bio.innerHTML = event.target.value;
-      var x = event.key;
-      if (x === "Enter"){
-        bio.innerHTML = "";
-        event.target.value = "";
-      }
-    });
-  });
+  birth.addEventListener("click", borderInput);
+
+  death.addEventListener("click", borderInput);
 
 });
 
