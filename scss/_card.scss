@@ -1,0 +1,15 @@
+.flex {
+	@include flex;
+	text-align: center;
+	width: 45%;
+	height: 600px;
+	margin: 10px;
+}
+
+.flex:nth-child(even){
+	background-color: $yellow;
+}
+
+.flex:nth-child(odd){
+	background-color: $blue;
+}
